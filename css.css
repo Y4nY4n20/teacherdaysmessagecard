@@ -1,0 +1,218 @@
+/* Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body {
+  height: 100%;
+  font-family: 'Poppins', sans-serif;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #fff;
+  position: relative;
+  background: linear-gradient(270deg, #ffb347, #ffcc33, #3a5a40, #2a3a30);
+  background-size: 800% 800%;
+  animation: gradientShift 20s ease infinite;
+}
+
+/* Gradient animation */
+@keyframes gradientShift {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* Glowing rays */
+.light-rays {
+  position: fixed;
+  top: 0; left: 50%;
+  width: 150vw;
+  height: 150vh;
+  pointer-events: none;
+  transform: translateX(-50%);
+  background:
+    radial-gradient(ellipse at center, rgba(255 255 200 / 0.15) 0%, transparent 70%),
+    repeating-conic-gradient(from 30deg, rgba(255 255 180 / 0.05) 0deg 2deg, transparent 2deg 5deg);
+  animation: raysRotate 40s linear infinite;
+  z-index: -2;
+  filter: blur(60px);
+}
+
+@keyframes raysRotate {
+  from { transform: translateX(-50%) rotate(0deg); }
+  to { transform: translateX(-50%) rotate(360deg); }
+}
+
+/* Soft floating particles (chalk dust) */
+.dust-particle {
+  position: fixed;
+  background: rgba(255 255 255 / 0.2);
+  border-radius: 50%;
+  animation-name: dustFloat;
+  animation-iteration-count: infinite;
+  animation-timing-function: ease-in-out;
+  box-shadow: 0 0 8px rgba(255 255 255 / 0.3);
+}
+
+@keyframes dustFloat {
+  0%, 100% { transform: translateY(0) translateX(0); opacity: 0.3; }
+  50% { transform: translateY(-25px) translateX(10px); opacity: 0.8; }
+}
+
+/* Floating books and pencils */
+.floating-object {
+  position: fixed;
+  width: 50px;
+  height: 50px;
+  opacity: 0.85;
+  animation-name: floatUp;
+  animation-timing-function: ease-in-out;
+  animation-iteration-count: infinite;
+  filter: drop-shadow(0 0 3px #ffd966);
+}
+
+@keyframes floatUp {
+  0% { transform: translateY(100vh) rotate(0deg); opacity: 0; }
+  10% { opacity: 1; }
+  100% { transform: translateY(-120px) rotate(360deg); opacity: 0; }
+}
+
+/* Position floating objects randomly and with different durations and delays */
+.floating-object:nth-child(1) {
+  left: 12%;
+  animation-duration: 14s;
+  animation-delay: 0s;
+}
+.floating-object:nth-child(2) {
+  left: 38%;
+  animation-duration: 12s;
+  animation-delay: 3s;
+  width: 45px;
+  height: 45px;
+}
+.floating-object:nth-child(3) {
+  left: 58%;
+  animation-duration: 16s;
+  animation-delay: 5s;
+}
+.floating-object:nth-child(4) {
+  left: 80%;
+  animation-duration: 13s;
+  animation-delay: 2s;
+  width: 40px;
+  height: 40px;
+}
+.floating-object:nth-child(5) {
+  left: 90%;
+  animation-duration: 18s;
+  animation-delay: 7s;
+  width: 38px;
+  height: 38px;
+}
+
+/* Card styles */
+.card {
+  background: rgba(255 255 255 / 0.12);
+  backdrop-filter: blur(15px);
+  border-radius: 25px;
+  padding: 40px 50px;
+  max-width: 480px;
+  box-shadow: 0 20px 50px rgba(255 185 71, 0.4);
+  text-align: center;
+  color: #fffde7;
+  position: relative;
+  z-index: 10;
+  animation: cardFadeIn 1s ease forwards;
+  border: 2px solid #ffd966;
+}
+
+@keyframes cardFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(30px) scale(0.9);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+h1 {
+  font-family: 'Dancing Script', cursive;
+  font-size: 3rem;
+  margin-bottom: 20px;
+  color: #ffd966;
+  text-shadow: 0 0 12px #ffd966;
+  animation: glowText 3s ease-in-out infinite;
+}
+
+@keyframes glowText {
+  0%, 100% { text-shadow: 0 0 12px #ffd966; }
+  50% { text-shadow: 0 0 30px #fff799; }
+}
+
+.avatar {
+  font-size: 5rem;
+  margin: 15px 0 30px;
+  filter: drop-shadow(0 0 8px #ffd966);
+  animation: bounce 2.5s ease infinite;
+}
+
+@keyframes bounce {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-15px); }
+}
+
+p.message {
+  font-size: 1.15rem;
+  line-height: 1.6;
+  margin-bottom: 10px;
+  color: #fffde7;
+  text-shadow: 0 0 5px rgba(0,0,0,0.25);
+}
+
+.teacher-name {
+  font-family: 'Dancing Script', cursive;
+  font-size: 2rem;
+  color: #ffe38b;
+  margin: 10px 0 25px;
+  font-weight: 600;
+  text-shadow: 0 0 8px #ffd966;
+}
+
+.student {
+  font-style: italic;
+  font-size: 1.1rem;
+  color: #f3e7a5;
+  margin-top: 20px;
+  text-shadow: 0 0 4px #b69d23;
+}
+
+.student-name {
+  font-family: 'Dancing Script', cursive;
+  font-size: 1.5rem;
+  margin-top: 5px;
+  color: #fff9b7;
+  text-shadow: 0 0 7px #ffd966;
+}
+
+/* Responsive */
+@media (max-width: 550px) {
+  .card {
+    padding: 30px 25px;
+    max-width: 90vw;
+  }
+  h1 {
+    font-size: 2.5rem;
+  }
+  .teacher-name {
+    font-size: 1.6rem;
+  }
+  .student-name {
+    font-size: 1.2rem;
+  }
+}
